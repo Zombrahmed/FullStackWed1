@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>FullStackWeb</title>
+ <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/pageStyle.css">
+  <script type="text/javascript" src="/js/jquery.min.js"></script><!--May display courses details-->
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/js/functionality.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+  <!-- Navigation Bar 
+  <script src="/socket.io/socket.io.js"></script>
+-->
+  
+<div id="nav">
+	<div class="col-8 center">
+		
+
+		
+		<% if(loggedIn) { %>
+		<a href="/"><span class="button">Home</span></a>
+		<a href="/courses"><span class="button">Courses</span></a>
+		<a href="/subscribers"><span class="button">Contact</span></a>
+		<a href="/users"><span class="button">Users</span></a>
+		<%- include('courses/_coursesModal') %>
+		  <% } %>
+		  
+	</div>
+
+    <div class="col-4 center">
+
+      <h1>Full Stack Project</h1>
+	 <P>Backend and frontend interaction</P> 
+
+    </div>
+  </div>
+
+  <h1>
+  <div class="login">
+    <p>
+      <% if(loggedIn) { %>
+        Logged in as
+        <a href="<%= `/users/${currentUser._id}` %>"><%= currentUser.fullName %></a> <br>
+        <a href="/users/logout">Log out</a>
+      <% } else { %>
+        
+		<a href="/users/login">Log In</a>
+		
+		<br>
+		<a href="/users/new">Sign Up</a>
+      <% } %>
+    </p>
+  </div>
+</h1>
+
+  <!-- Flash Messages -->
+  <div class="flashes">
+    <% if(flashMessages) { %>
+      <% if(flashMessages.success) { %>
+        <div class="flash success"><%= flashMessages.success %></div>
+      <% } else if (flashMessages.error) { %>
+        <div class="flash error"><%= flashMessages.error %></div>
+      <% } %>
+    <% } %>
+  </div>
+
+  <!-- Main Content -->
+  <%- body %>
+<div class="text-justify">
+  <% if(loggedIn) { %>
+	<a href="/chat" class="chat-icon">Chat with us</a>
+  <% } %>
+</div>
+ 
+</nav>
+</body>
+
+</html>

@@ -5,6 +5,7 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "react-scripts build",
     "start": "node main.js"
   },
   "author": "Aroum Zombra",
@@ -24,6 +25,7 @@
     "mongoose": "^5.0.0-rc1",
     "passport": "^0.4.0",
     "passport-local-mongoose": "^4.5.0",
+    "react-scripts": "^5.0.1",
     "socket.io": "^2.0.4"
   }
 }

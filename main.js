@@ -67,7 +67,7 @@ app.use( '/', router );
 
 const server = app.listen( app.get( 'port' ), () => {
     console.log( `Server running at http://localhost:${app.get('port')}` );
-    //console.log( `Server running at https://fullStack.onrender.com` );
+   
   } ),
   io = require('socket.io')(server);
 require('./controllers/chatController')(io);

@@ -20,7 +20,7 @@ const express = require( 'express' ),
   mongoose.set('useUnifiedTopology', true);
   mongoose.set('useCreateIndex', true);
 //mongoose.connect( 'mongodb://localhost:27017' );
-mongoose.connect( process.env.MONGODB_URI || 'mongodb://localhost/recipe_db', {family:4} );
+mongoose.connect( process.env.MONGODB_URI || 'mongodb://localhost:27017/recipe_db', {family:4} );
 
 
 app.set( 'port', process.env.PORT || 3000 );
